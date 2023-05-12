@@ -20,13 +20,27 @@ public class App
                 System.out.println("How many playlist you want to make: ");
                 int numberPlayList = myObj2.nextInt();
                 playList = new PlayList[numberPlayList];
+                int a = 0;
 
                 for (int i = 0; i < numberPlayList; i ++)
                 {
-                    System.out.println("Enter the infos for PlayList " + i + 1);
+                    a = i+1;
+                    System.out.println("Enter the infos for PlayList " + a);
                     playList[i] = new PlayList();
                     playList[i].askName();
                     playList[i].askGenre();
+                }
+            }
+
+            if (input == 3)
+            {
+                int a = 0;
+                for (int i = 0; i < playList.length; i++)
+                {
+                    a = i+1;
+                    System.out.println("This is playlist " + a);
+                    System.out.println("Name: " + playList[i].getName() + " " + "Genre: " + playList[i].getGenre());
+                    System.out.println(" ");
                 }
             }
         }
