@@ -1,23 +1,29 @@
-import java.util.Scanner;
+package app;
 
-public class Playlist
+public class PlayList
 {
+    Song[] playList;
+
+    public PlayList()
+    {
+        playList = new Song[];
+    }
+
     private String name;
     private String genre;
-    private Playlist[] playList;
 
-    private void askName()
+    public void askName()
     {
         Scanner myObj = new Scanner(System.in);  
         System.out.println("What is the Name of the PlayList ? ");
-        String name = myObj.nextString();
+        name = myObj.nextLine();
     }
 
-    private void askGenre()
+    public void askGenre()
     {
-        Scanner myObj = new Scanner(System.in);  
+        Scanner myObj2 = new Scanner(System.in);  
         System.out.println("What is the Genre of the PlayList ? ");
-        String genre = myObj.nextString();
+        genre = myObj2.nextLine();
     }    
 
     public String getName()
@@ -28,5 +34,39 @@ public class Playlist
     public String getGenre()
     {
         return genre;
+    }
+
+    public void addSong()
+    {
+        System.out.println("\'Print stop when done\'");
+        int count = 0;
+        while(true)
+        {
+            Scanner scan = new Scanner(System.in);
+            System.out.println("Enter Song name: ");
+            String getSongName = scan.nextLine();
+            Song newSong = new Song();
+            newSong.setName(getSongName);
+            
+            System.out.println("Enter artist name: ");
+            String getArtistName = scan.nextLine();
+            newSong.setArtist(getArtistName);
+
+            // System.out.println("Enter genre: ");
+            // String getArtistName = scan.nextLine();
+            // newSong.setArtist(getArtistName);
+            
+            playList[count] = newSong;
+            count++;
+            if(answer.equalsIgnoreCase("stop"))
+            {
+                break;
+            }
+        }
+    }
+
+    public void getSongByIndex(int z)
+    {
+        return playList[z];
     }
 }
