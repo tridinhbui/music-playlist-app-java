@@ -1,7 +1,8 @@
-import java.util.Scanner;
-public class Songs
+package app;
+
+public class Song
 {
-    public Songs()
+    public Song()
     {
     }
     
@@ -10,19 +11,19 @@ public class Songs
     private static String name;
     
     //setter
-    public static void setName(String theName)
+    public static void setName(String name)
     {
-        name = theName;
+        this.name = name;
     }
     
-    public static void setArtist(String artistName)
+    public static void setArtist(String artist)
     {
-        artist = artistName;
+        this.artist = artist;
     }
     
-    public static void setGenre(String type)
+    public static void setGenre(String genre)
     {
-        genre = type;
+        this.genre = genre;
     }
     
     //getter
@@ -39,7 +40,5 @@ public class Songs
     public String getName()
     {
         return name;
-    }
-    
-    
+    }  
 }
