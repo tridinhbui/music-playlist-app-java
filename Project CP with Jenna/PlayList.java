@@ -46,11 +46,11 @@ public class PlayList
             System.out.println("Enter Song name: ");
             String getSongName = scan.nextLine();
             Song newSong = new Song();
-            newSong.setName(getSongName);
+            newSong.setName(getSongName); // Make song name and set it to class Song so that it is compatible to the Song array
             
             System.out.println("Enter artist name: ");
             String getArtistName = scan.nextLine();
-            newSong.setArtist(getArtistName);
+            newSong.setArtist(getArtistName); // Make song genre and set it to class Song so that it is compatible to the Song array
 
             // System.out.println("Enter genre: ");
             // String getArtistName = scan.nextLine();
@@ -58,7 +58,7 @@ public class PlayList
             
             playList[count] = newSong;
             count++;
-            if(answer.equalsIgnoreCase("stop"))
+            if(getSongName.equalsIgnoreCase("stop") || getArtistName.equalsIgnoreCase("stop"))
             {
                 break;
             }
