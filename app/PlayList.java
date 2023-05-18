@@ -34,18 +34,27 @@ public class PlayList {
 
     public void addSong(int numSongs) {
         Scanner scan = new Scanner(System.in);
-        for (int i = 0; i < numSongs; i++) {
-            System.out.println("Enter Song name: ");
-            String songName = scan.nextLine();
 
-            System.out.println("Enter artist name: ");
-            String artistName = scan.nextLine();
+        System.out.println("Enter Song name: ");
+        String songName = scan.nextLine();
 
-            Song newSong = new Song();
-            newSong.setName(songName);
-            newSong.setArtist(artistName);
+        System.out.println("Enter artist name: ");
+        String artistName = scan.nextLine();
 
-            playList.add(newSong);
+        Song newSong = new Song();
+        newSong.setName(songName);
+        newSong.setArtist(artistName);
+
+        playList.add(newSong);
+
+    }
+
+    public void removeSong(int index) {
+        if (index >= 0 && index < playList.size()) {
+            playList.remove(index);
+            System.out.println("Song removed from the playlist.");
+        } else {
+            System.out.println("Invalid song index.");
         }
     }
 
@@ -55,5 +64,21 @@ public class PlayList {
 
     public ArrayList<Song> getSongList() {
         return playList;
+    }
+
+    public ArrayList<Song> searchSongs(String searchQuery) {
+        ArrayList<Song> matchingSongs = new ArrayList<>();
+
+        for (Song song : playList) {
+            if (song.getName().equalsIgnoreCase(searchQuery) || song.getArtist().equalsIgnoreCase(searchQuery)) {
+                matchingSongs.add(song);
+            }
+        }
+
+        return matchingSongs;
+    }
+
+    public void clear() {
+        playList.removeAll(playList);
     }
 }
